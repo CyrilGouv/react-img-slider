@@ -1,13 +1,103 @@
+:root {
+  --black: #000;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.app__wrapper {
+  width: 90%;
+  max-width: 650px;
+}
+
+.app__title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2.5rem;
+}
+
+.app__title::before {
+  position: absolute;
+  content: '';
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+}
+
+.Slider {
+  width: 90%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.slider__controllers {
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5rem;
+}
+
+.slider__controllers button {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+}
+
+.slider__img {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.slider__img li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  transition: .35s;
+  z-index: -1;
+}
+
+.slider__img li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.slider__img li.current {
+  transform: translateX(0);
+  z-index: 1;
+}
+
+.slider__img li.next {
+  transform: translateX(100%);
+
+}
+
+.slider__img li.prev {
+  transform: translateX(-100%);
 }
